@@ -15,7 +15,7 @@ import {
 } from "../../utils/localStorage";
 import { detectIsAPIkeyValid } from "../../api/api";
 import { KeyboardEvent } from "../../interfaces/keyboardInterface";
-import { API_KEY, EMAIL_ADDRESS, ENTER_API, ENTER_EMAIL, LOGIN, NEW_USER } from "../../typeConstants";
+import { API_KEY, EMAIL_ADDRESS, ENTER_API, ENTER_EMAIL, INVAILD_API, INVALID_EMAIL, LOGIN, NEW_USER, ENTER_DETAILS } from "../../typeConstants";
 import { registerBaseUrl } from "../../api/baseurl";
 
 interface LoginProps {
@@ -25,7 +25,12 @@ interface LoginProps {
 const CustomContainer = styled(Container)(() => ({
   color: colors.black,
   padding: "3rem 5rem",
+  marginTop: '5rem',
   boxShadow: "0px 2px 5px 1px rgba(0,0,0,0.3)",
+  "@media (max-width:600px)": {
+    boxShadow: 'none',
+    padding: "3rem 1rem",
+  },
 }));
 
 const CustomFormControl = styled(FormControl)({
@@ -45,9 +50,9 @@ const CustomInput = styled(TextField)(() => ({
   width: "100%",
   minWidth: "18rem",
   margin: "0.5rem 0",
-  color: 'gray',
+  color: colors.darkGray,
   input: {
-    color: 'gray',
+    color: colors.black,
     "&::placeholder": {
       textOverflow: "ellipsis",
       color: colors.black,
@@ -88,13 +93,13 @@ const Form: FC<LoginProps> = ({ authenticate }) => {
           authenticate();
           navigate("/main");
         } else {
-          alert("Invalid API key");
+          alert(INVAILD_API);
         }
       } else {
-        alert("Invalid Email");
+        alert(INVALID_EMAIL);
       }
     } else {
-      alert("please enter your details");
+      alert(ENTER_DETAILS);
     }
   };
 
@@ -139,7 +144,7 @@ const Form: FC<LoginProps> = ({ authenticate }) => {
           rel='noreferrer'
           style={{
             textDecoration: "none", fontWeight: 900, textTransform: "uppercase",
-            color: '#0C7FFB'
+            color: colors.darkPrimary,
           }}
         >{' '}
           {API_KEY}
@@ -150,7 +155,7 @@ const Form: FC<LoginProps> = ({ authenticate }) => {
         <Button
           variant='contained'
           color='primary'
-          sx={{ my: "1rem", color: colors.white, backgroundColor: "#0C7FFB" }}
+          sx={{ my: "1rem", color: colors.white, backgroundColor: colors.darkPrimary }}
           onClick={handleSubmit}
         >
           {LOGIN}

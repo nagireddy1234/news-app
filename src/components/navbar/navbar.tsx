@@ -18,7 +18,7 @@ interface NavBarProps {
 
 const CustomLink = styled(Link)({
   marginRight: "1rem",
-  color: "#fff",
+  color: colors.white,
   textDecoration: "none",
 });
 
@@ -52,19 +52,29 @@ const NavBar: FC<NavBarProps> = ({ isUserLoggedIn, setuserLoggedIn }) => {
         >
           <Toolbar
             sx={{
-              color: "#fff",
+              color: colors.white,
               padding: "0px",
               "@media (max-width:750px)": {
                 padding: "0 0.5rem 0 1rem",
+              },
+              "@media (max-width:360px)": {
+                justifyContent:'center'
               },
             }}
           >
             <Typography
               variant='h6'
               component='div'
-              sx={{ flex: "inline-flex", flexGrow: 1, fontWeight: 900 }}
+              sx={{
+                flex: "inline-flex", flexGrow: 1, fontWeight: 900, "@media (max-width:360px)": {
+                  display: 'none',
+                },
+              }}
             >
-              <span style={{ cursor: "pointer" }} onClick={() => navigate("/")}>{ERPLY_NEWS}</span>
+              <span style={{
+                cursor: "pointer",
+
+              }} onClick={() => navigate("/")}>{ERPLY_NEWS}</span>
             </Typography>
             {isUserLoggedIn && (
               <>

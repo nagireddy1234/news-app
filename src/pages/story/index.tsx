@@ -7,15 +7,13 @@ import colors from "../../theme/colors";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import { BACKTO_NEWS, NOT_KNOWN } from "../../typeConstants";
+import { BACKTO_NEWS, NOT_PROVIDED } from "../../typeConstants";
 
 
 
 const Story = ({ }) => {
   const navigate = useNavigate();
   const { state } = useLocation();
-
-  console.log("state", state)
 
   const CustomContainer = styled(Container)({
     backgroundColor: colors.white,
@@ -26,17 +24,40 @@ const Story = ({ }) => {
     alignItems: 'center',
     flexDirection: 'column',
     marginTop: "6.5rem",
+    "@media (max-width:600px)": {
+      marginTop: "5rem",
+    },
   });
   return <CustomContainer>
     <Grid container>
-      <Grid item sm={6}>
+      <Grid item xs={12} sm={6}>
         <Button variant="outlined" startIcon={<ArrowBackIcon />} sx={{ border: 'none', color: colors.black, "&:hover": { border: 'none' } }} onClick={() => navigate('/main')}>
           {BACKTO_NEWS}
         </Button>
       </Grid>
-      <Grid item sm={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'end', flexDirection: 'row' }}>
-        <Typography ><span style={{ color: colors.darkGray, fontSize: '0.9rem' }}>published:</span> {new Date(state?.publishedAt).toLocaleString() || NOT_KNOWN}</Typography>
-        <Typography sx={{ marginLeft: '2rem' }}><span style={{ color: colors.darkGray, fontSize: '0.9rem' }}>author:</span> {state?.author || NOT_KNOWN}</Typography>
+      <Grid item container xs={12} sm={6} sx={{
+        display: 'flex', alignItems: 'center', justifyContent: 'end', flexDirection: 'row', "@media (max-width:600px)": {
+          marginTop: "1rem",
+          justifyContent: 'start'
+        },
+      }}>
+
+        <Grid item  xs={12} sm={6}>
+          <Typography sx={{
+            "@media (max-width:600px)": {
+              width: '100%'
+            },
+          }}><span style={{ color: colors.darkGray, fontSize: '0.9rem' }}>published:</span> {new Date(state?.publishedAt).toLocaleString() || NOT_PROVIDED}</Typography>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Typography sx={{
+            marginLeft: '2rem', "@media (max-width:600px)": {
+              width: '100%',
+              marginTop:'0.5rem',
+              marginLeft: '0',
+            }
+          }}><span style={{ color: colors.darkGray, fontSize: '0.9rem' }}>author:</span> {state?.author || NOT_PROVIDED}</Typography>
+        </Grid>
       </Grid>
     </Grid>
 

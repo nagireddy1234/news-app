@@ -9,6 +9,7 @@ import {
   fetchNewsBySearch,
   fetchNewsRes,
 } from "../../redux/actions/newsAction";
+import { ENTER_SOMETHING } from "../../typeConstants";
 import {
   getDataFromLocalStorage,
   localStorageKeys,
@@ -36,7 +37,7 @@ const Main = () => {
 
   const handleSearchSubmit = async () => {
     if (searchValue.trim() === '' || searchValue === null) {
-      alert('please enter something in search field...')
+      alert(ENTER_SOMETHING)
     } else {
       dispatch(fetchNewsRes([]));
       dispatch(fetchNewsBySearch(searchValue));

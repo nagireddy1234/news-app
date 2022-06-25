@@ -1,16 +1,14 @@
 import React, { FC, memo } from "react";
+import { isEqual } from "lodash";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import { Link } from "react-router-dom";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions } from "@mui/material";
+import { CardActionArea } from "@mui/material";
 import uuid from "../utils/uuid";
 import newsImage from "../assets/news.jpg";
-import { isEqual } from "lodash";
-import { READ_MORE } from "../typeConstants";
 
 interface NewsListProps {
   data: any;

@@ -40,10 +40,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist/'),
     publicPath: '/dist/',
     filename: '[name].js',
-    // path: path.join(__dirname, '/dist'),
-    // filename: 'static/js/[name].js',
-    // publicPath: '/',
-    
   },
   devServer: {
     historyApiFallback: true,
