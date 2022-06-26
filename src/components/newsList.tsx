@@ -11,8 +11,8 @@ import uuid from "../utils/uuid";
 import newsImage from "../assets/news.jpg";
 
 interface NewsListProps {
-  data: any;
-  handleStory: (data: any) => void;
+  data?: StoryProps[];
+  handleStory?: (data: StoryProps) => void;
 }
 export interface StoryProps {
   description?: string;
@@ -21,10 +21,10 @@ export interface StoryProps {
   url?: string;
   urlToImage?: string;
   content?: string;
+  author?: string;
 }
 
 const NewsList: FC<NewsListProps> = ({ data, handleStory }) => {
-
   return (
     <Container maxWidth='lg' sx={{ width: "100%" }}>
       <Grid

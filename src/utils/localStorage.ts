@@ -22,5 +22,6 @@ export const removeDataFromLocalStorage = (key: string) => {
 export const localStorageKeys = {
   login: "login",
   userLoggin:'userLoggin',
-  searchedValue: 'searchedValue'
+  searchedValue: 'searchedValue',
+  profileInfo:'profileInfo'
 };

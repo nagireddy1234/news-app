@@ -18,7 +18,7 @@ import { KeyboardEvent } from "../../interfaces/keyboardInterface";
 import { API_KEY, EMAIL_ADDRESS, ENTER_API, ENTER_EMAIL, INVAILD_API, INVALID_EMAIL, LOGIN, NEW_USER, ENTER_DETAILS } from "../../typeConstants";
 import { registerBaseUrl } from "../../api/baseurl";
 
-interface LoginProps {
+export interface LoginProps {
   authenticate: () => void
 }
 
@@ -27,7 +27,7 @@ const CustomContainer = styled(Container)(() => ({
   padding: "3rem 5rem",
   marginTop: '5rem',
   boxShadow: "0px 2px 5px 1px rgba(0,0,0,0.3)",
-  "@media (max-width:600px)": {
+  "@media (maxWidth:600px)": {
     boxShadow: 'none',
     padding: "3rem 1rem",
   },
@@ -62,8 +62,8 @@ const CustomInput = styled(TextField)(() => ({
 }));
 
 const Form: FC<LoginProps> = ({ authenticate }) => {
-  const [email, setEmail] = useState("");
-  const [apiKey, setApiKey] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [apiKey, setApiKey] = useState<string>("");
   const navigate = useNavigate();
 
   const EmailonChange = (e: React.ChangeEvent<HTMLInputElement>) => {

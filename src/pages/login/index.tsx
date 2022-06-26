@@ -1,8 +1,8 @@
+import React, { FC } from 'react';
 import styled from "@mui/system/styled";
-import React from 'react';
 import Container from "@mui/material/Container";
 import colors from '../../theme/colors';
-import Form from './form';
+import Form, { LoginProps } from './form';
 
 const CustomContainer = styled(Container)({
   backgroundColor: colors.white,
@@ -15,11 +15,10 @@ const CustomContainer = styled(Container)({
   flexDirection: 'column',
 });
 
-const Login = ({ authenticate }) => (
+const Login: FC<LoginProps> = ({ authenticate }) => (
   <CustomContainer>
     <Form authenticate={authenticate} />
   </CustomContainer>
-
 );
 
 export default Login;

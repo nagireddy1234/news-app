@@ -13,7 +13,7 @@ import { resetState } from "../../redux/actions/newsAction";
 
 interface NavBarProps {
   isUserLoggedIn: boolean;
-  setuserLoggedIn: () => void;
+  setuserLoggedIn: (value:boolean) => void;
 }
 
 const CustomLink = styled(Link)({

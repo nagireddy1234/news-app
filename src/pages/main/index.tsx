@@ -56,16 +56,16 @@ const Main = () => {
     return () => window.removeEventListener("keydown", keyDownHandler);
   });
 
-  const handleStory = (data: any) => {
-    navigate(`/story?title?${data.title}`, { state: data });
-  };
-  return (
-    <div style={{ marginTop: "6.5rem" }}>
-      <SearchInput onChange={handleSearch} value={searchValue} onSubmit={handleSearchSubmit} />
-      <NewsList data={data} handleStory={handleStory} />
-      {/* {isLoading! && data.length > 0 ? <NewsList data={data} handleStory={handleStory} /> : <PageNotfound title='no news today' />} */}
-    </div>
-  );
+  const handleStory = (data: any) => (
+    navigate(`/story?title?${data.title}`, { state: data })
+  )
+return (
+  <div style={{ marginTop: "6.5rem" }}>
+    <SearchInput onChange={handleSearch} value={searchValue} onSubmit={handleSearchSubmit} />
+    <NewsList data={data} handleStory={handleStory} />
+    {/* {isLoading! && data.length > 0 ? <NewsList data={data} handleStory={handleStory} /> : <PageNotfound title='no news today' />} */}
+  </div>
+);
 };
 
 export default Main;
