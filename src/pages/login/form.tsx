@@ -91,6 +91,8 @@ const Form: FC<LoginProps> = ({ authenticate }) => {
       if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email)) {
         if (result.status === "ok") {
           authenticate();
+         setEmail("");
+         setApiKey("");
           navigate("/main");
         } else {
           alert(INVAILD_API);
@@ -132,11 +134,7 @@ const Form: FC<LoginProps> = ({ authenticate }) => {
           onChange={ApionChange}
         />
       </CustomFormControl>
-      <Typography
-        variant='body1'
-        align='right'
-        sx={{ mt: "1rem" }}
-      >
+      <Typography variant='body1' align='right' sx={{ mt: "1rem" }}>
         {NEW_USER}
         <a
           href={`${registerBaseUrl}`}

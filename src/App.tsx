@@ -12,6 +12,7 @@ import {
   saveDataInLocalStorage,
 } from "./utils/localStorage";
 import { useSelector } from "react-redux";
+import { RootReducer } from "./interfaces/storeInterfaces";
 
 const Main = lazy(() => import("./pages/main"));
 const Story = lazy(() => import("./pages/story"));
@@ -19,7 +20,7 @@ const Profile = lazy(() => import("./pages/profile"));
 const PageNotfound = lazy(() => import("./pages/pageNotFound"));
 
 const App: FC = () => {
-  const isLoading = useSelector((state: any) => state.newsReducer.isLoading);
+  const isLoading = useSelector((state: RootReducer) => state.newsReducer.isLoading);
   const [isUserLoggedIn, setuserLoggedIn] = useState(
     getDataFromLocalStorage(localStorageKeys.userLoggin) || null
   );

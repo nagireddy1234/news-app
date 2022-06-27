@@ -1,4 +1,4 @@
-export const saveDataInLocalStorage = (key:string, value: any) => {
+export const saveDataInLocalStorage = (key:string, value: Object | string) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
 
@@ -23,5 +23,5 @@ export const localStorageKeys = {
   login: "login",
   userLoggin:'userLoggin',
   searchedValue: 'searchedValue',
-  profileInfo:'profileInfo'
+  profileName:'profileName'
 };

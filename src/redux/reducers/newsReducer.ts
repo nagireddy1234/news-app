@@ -1,4 +1,5 @@
 import { StoryProps } from "../../components/newsList";
+import { NewsReducerProps } from "../../interfaces/storeInterfaces";
 import { FETCH_TOPHEADLINES_NEWS, LOADING, RESET } from "../types/newsTypes";
 
 export interface HeadlinesInterface {
@@ -6,7 +7,7 @@ export interface HeadlinesInterface {
   payload: Array<StoryProps> | null;
 }
 
-const initialState = {
+const initialState: NewsReducerProps = {
   news: [],
   isLoading: false,
 };

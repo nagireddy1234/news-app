@@ -43,7 +43,7 @@ const NewsList: FC<NewsListProps> = ({ data, handleStory }) => {
               sm={6}
               md={4}
               key={uuid()}
-              onClick={() => handleStory(story)}
+              onClick={() => handleStory && handleStory(story)}
             >
               <Card sx={{ width: "100%", alignSelf: "stretch" }}>
                 <CardActionArea>

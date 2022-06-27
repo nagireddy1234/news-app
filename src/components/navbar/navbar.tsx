@@ -28,6 +28,7 @@ const NavBar: FC<NavBarProps> = ({ isUserLoggedIn, setuserLoggedIn }) => {
 
   const handleLogout = () => {
     if (window.confirm("Are you sure you want to logout?")) {
+      localStorage.clear();
       setuserLoggedIn(false);
       dispatch(resetState());
       navigate("/");
